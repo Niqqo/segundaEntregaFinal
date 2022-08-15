@@ -33,11 +33,18 @@ const traerDelLS = (clave) => {
 formulario.onsubmit = (event) => {
     event.preventDefault()
     ingresarCliente(carteraClientes, inputNombres.value)
+        swal({
+            title: "Excelente!",
+            text: `El nombre ingresado es ${inputNombres.value}`,
+            icon: "success",
+            button: "Continuar"
+        })
     formulario.reset()
     contenedorDeNombres.innerHTML = inyectarHTML(carteraClientes)  
     convertirAJSONYSubirAlLS("carteraClientes", carteraClientes) 
     console.log(carteraClientes)
 }
+
 
 let carteraClientesTraidosDelLS = traerDelLS("carteraClientes")
 carteraClientes = carteraClientesTraidosDelLS
